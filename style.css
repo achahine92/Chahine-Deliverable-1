@@ -1,0 +1,142 @@
+/* Mobile-first layout */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    font-size: 100%;
+} /* Default size for mobile view */
+
+header {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 15px;
+    background-color: #f2f2f2;
+    position: relative;
+} /* Stacks header items in column flow/left of the screen in mobile view */
+
+h1 {
+    padding: 0 0 10px 15px;
+    margin-bottom: 5px;
+    color: #20a8b4;
+} /* Standard layout for h1 in mobile view, won't change much in desktop */
+
+.nav-list {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: stretch;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+} /* Stacks nav list into column, strecthes content with width 100vw to ensure button extends across screen */
+
+.nav-list li {
+    padding: 3px 10px 3px 15px;
+    box-sizing: border-box;
+} /* Format for nav list items */
+
+.nav-list li a {
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+} /* Formats nav bar (all except button) */
+
+.nav-list li a:hover {
+    color: #ff5c0f; 
+} /* Gives orange hover effect to nav bar */
+
+button {
+    padding: 12px; 
+    background-color: #20a8b4;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px; 
+    width: 100%; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+} /* Follows instructed format of nav-list button */ 
+/*Puts width at 100% of container and stretches button across the screen in mobile */
+/* Puts words in button in the left (flex-start) */
+
+button:hover {
+    background-color: #ff5c0f;
+} /* Gives orange hover effect to all buttons */
+
+a {
+    text-decoration: none;
+} /* Ensures hyperlinks in nav bar are not underlined */
+
+section {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: stretch;
+    flex-direction: column; 
+    padding: 20px;
+    margin: 0;
+} /* Makes section appear on lefthand side of screen in mobile view */
+/* Allows .body-container button to stretch across screen and gives padding */
+
+.body-container {
+    margin-top: 150px;
+} /* Gives space between section and header */
+
+h2 {
+    padding: 0;
+}
+
+p {
+    margin-left: 3px;
+    padding-bottom: 5px;
+} /* Aligns p margin with h2 as close as possible */ 
+
+#code-pic {
+    display: none;
+} /* Image does not display in mobile view */
+
+.orange {
+    color: #ff5c0f;
+} /* Code for making only select <span> text orange */
+
+/* Layout for desktop view */
+@media screen and (min-width: 768px) { /* Once screen reaches this size, format changes to below settings for desktop view */
+    header {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0; 
+    } /* Adjusts header format in desktop view to column space between and vertically centered */
+
+    .nav-list {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        width: auto; 
+    } /* Resets width to auto in desktop view -- not sure if flexbox attributes need to be repeated here but just in case */
+
+    .nav-list li {
+        padding: 3px; 
+    } 
+
+    button {
+        margin-top: 0; 
+        width: auto; 
+    } /* Resets button width to auto */
+
+    section {
+        flex-direction: row; 
+        height: 100vh; 
+    } /* Sets section to flow direction with full height */
+
+    #code-pic {
+        display: block; 
+        height: 300px;
+        width: 450px;
+        align-self: center;
+        margin-top: 75px;
+    } /* Reincorporates image to page in desktop view and centers with .body-container text */
+}
